@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
   ]
 })
 export class AppComponent {
-  foo = 'World';
-  bar = 'acelaya';
+  foo: string = 'World';
+  bar: string = 'acelaya';
 }
