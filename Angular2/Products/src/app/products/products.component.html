@@ -6,7 +6,7 @@
         </div>
     </div>
 </form>
-<table class="table table-hover table-striped">
+<table class="table table-hover table-striped" *ngIf="products && products.length > 0">
     <thead>
         <tr>
             <th>
@@ -28,7 +28,7 @@
             <td>{{product.code}}</td>
             <td>{{product.availableDate}}</td>
             <td>{{product.price | currency: 'EUR'}}</td>
-            <td><stars score="{{product.rating}}"></stars></td>
+            <td><stars score="{{product.rating}}" [title]='product.rating'></stars></td>
         </tr>
     </tbody>
 </table>
