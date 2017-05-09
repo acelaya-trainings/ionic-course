@@ -1,14 +1,18 @@
-enum Category {Syfy, History, Poetry};
+import { Category } from './enums';
+import { Book, Librarian, Author } from './interfaces';
 
 export class BookManager {
-    books: any[] = [
+    books: Book[] = [
         {
+            id: 1,
             title: 'Foo',
             author: 'Someone',
             available: true,
             category: Category.Syfy,
+            pages: 300,
         },
         {
+            id: 2,
             title: 'Bar',
             author: 'Someone else',
             available: true,
@@ -16,11 +20,11 @@ export class BookManager {
         },
     ];
 
-    getAllBooks(): any[] {
+    getAllBooks(): Book[] {
         return this.books;
     }
     
-    getBooksByCategory(category: Category = Category.Syfy): any[] {
+    getBooksByCategory(category: Category = Category.Syfy): Book[] {
         return this.books.filter(book => book.category === category);
     }
 
