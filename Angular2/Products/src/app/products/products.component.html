@@ -9,7 +9,11 @@
 <table class="table table-hover table-striped">
     <thead>
         <tr>
-            <th><button class="btn btn-primary" (click)='showImages = ! showImages'>Show image</button></th>
+            <th>
+                <button class="btn btn-primary" (click)='showImages = ! showImages'>
+                    {{showImages ? 'Hide image' : 'Show image'}}
+                </button>
+            </th>
             <th>Product</th>
             <th>Code</th>
             <th>Available</th>
