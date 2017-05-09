@@ -1,7 +1,7 @@
 enum Category {Syfy, History, Poetry};
 
-function getAllBooks(): any[] {
-    return [
+export class BookManager {
+    books: any[] = [
         {
             title: 'Foo',
             author: 'Someone',
@@ -15,21 +15,19 @@ function getAllBooks(): any[] {
             category: Category.History,
         },
     ];
+
+    getAllBooks(): any[] {
+        return this.books;
+    }
+    
+    getBooksByCategory(category: Category = Category.Syfy): any[] {
+        return this.books.filter(book => book.category === category);
+    }
 }
 
-let books = getAllBooks();
+let manager = new BookManager();
+const books = manager.getAllBooks();
 
-// Classic version
-books.forEach(function (book) {
-    console.log(book.title);
-});
-
-// Arrow version
-books.forEach((book) => {
-    console.log(book.title);
-});
-
-// Typescript version
-for (let book of books) {
-    console.log(book.title);
-}
+console.log(manager.getBooksByCategory(Category.History));
+console.log(manager.getBooksByCategory(Category.Poetry));
+console.log(manager.getBooksByCategory());
