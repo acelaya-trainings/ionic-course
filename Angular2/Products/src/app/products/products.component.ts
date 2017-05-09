@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class ProductsComponent  {
     products: any[] = [
     {
-      imageUrl: '',
+      imageUrl: 'https://cdn4.iconfinder.com/data/icons/fineline-fill-gardening/128/garden_gardening_equipment_tool-19-256.png',
       name: 'Leaf Rake',
       code: '001',
       availableDate: '2016-01-01',
@@ -15,7 +15,7 @@ export class ProductsComponent  {
       rating: 3
     },
     {
-      imageUrl: '',
+      imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51-QGor8qKL._SL256_.jpg',
       name: 'Garden Cart',
       code: '002',
       availableDate: '2016-01-02',
@@ -23,7 +23,7 @@ export class ProductsComponent  {
       rating: 4
     },
     {
-      imageUrl: '',
+      imageUrl: 'http://www.pngall.com/wp-content/uploads/2016/04/Hammer-Download-PNG.png',
       name: 'Hammer',
       code: '003',
       availableDate: '2016-01-03',
@@ -31,7 +31,7 @@ export class ProductsComponent  {
       rating: 5
     },
     {
-      imageUrl: '',
+      imageUrl: 'http://plainicon.com/download-icons/51042/plainicon.com-51042-aa67-256px.png',
       name: 'Saw',
       code: '004',
       availableDate: '2016-01-04',
@@ -39,7 +39,7 @@ export class ProductsComponent  {
       rating: 4
     },
     {
-      imageUrl: '',
+      imageUrl: 'https://cdn1.iconfinder.com/data/icons/devices-7/128/devices-19-256.png',
       name: 'Video game controller',
       code: '005',
       availableDate: '2016-01-05',

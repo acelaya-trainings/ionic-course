@@ -19,7 +19,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let product of products">
-            <td><img [src]='product.imageUrl' *ngIf="showImages"></td>
+            <td><img style="width: 50px;" [src]='product.imageUrl' *ngIf="showImages"></td>
             <td>{{product.name}}</td>
             <td>{{product.code}}</td>
             <td>{{product.availableDate}}</td>
