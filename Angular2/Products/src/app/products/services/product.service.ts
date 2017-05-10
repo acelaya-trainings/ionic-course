@@ -1,12 +1,31 @@
 import { Injectable } from "@angular/core";
 import { Product } from "../product";
+import { Observable } from "rxjs/Observable";
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 export interface ProductServiceInterface {
     getProducts(): Product[];
+    getProductsAsync(): Observable<Product[]>;
 }
 
 @Injectable()
 export class ProductService implements ProductServiceInterface {
+    private productsUrl: string = '/api/products/products.json';
+
+    constructor(
+        private http: Http
+    ) {}
+
+    getProductsAsync(): Observable<Product[]> {
+        return this.http.get(this.productsUrl).map((resp: Response) => {
+            return <Product[]> resp.json();
+        }).catch((error: Response) => {
+            return Observable.throw(error.json().error || 'Server error');
+        });
+    }
+
     getProducts(): Product[] {
         return [
             {

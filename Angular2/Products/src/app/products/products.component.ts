@@ -7,7 +7,7 @@ import { ProductService, ProductServiceInterface } from "./services/product.serv
   templateUrl: './products.component.html',
 })
 export class ProductsComponent implements OnInit {
-  products: Product[];
+  products: Product[] = [];
   showImages: boolean = false;
   filterBy: string = '';
   
@@ -17,6 +17,8 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
+     this.productService.getProductsAsync().subscribe((products) => {
+       this.products = products;
+     });
   }
 }
