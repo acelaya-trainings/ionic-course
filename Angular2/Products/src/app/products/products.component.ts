@@ -10,6 +10,7 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   showImages: boolean = false;
   filterBy: string = '';
+  title: string = 'Product list';
   
   constructor(
     @Inject(ProductService)

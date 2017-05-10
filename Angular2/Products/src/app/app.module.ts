@@ -7,7 +7,7 @@ import { AppComponent }  from './app.component';
 import { ProductsComponent } from "./products/products.component";
 import { StarsComponent } from "./stars/starts.component";
 import { ProductFilterPipe } from "./products/pipes/products-filter.pipe";
-import { ProductService } from "./products/services/product.service";
+import { ProductService, ProductServiceInterface } from "./products/services/product.service";
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule ],
