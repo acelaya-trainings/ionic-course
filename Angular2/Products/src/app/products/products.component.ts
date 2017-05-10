@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
         rating: 5,
       },
       {
-        imageUrl: 'http://plainicon.com/download-icons/51042/plainicon.com-51042-aa67-256px.png',
+        imageUrl: 'https://www.wpclipart.com/tools/saws/saw_2/saw.png',
         name: 'Saw',
         code: '004',
         availableDate: '2016-01-04',
