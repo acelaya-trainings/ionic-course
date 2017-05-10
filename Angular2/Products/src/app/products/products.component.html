@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of products | productFilter:filterBy">
             <td><img style="width: 50px;" [src]='product.imageUrl' *ngIf="showImages"></td>
             <td>{{product.name}}</td>
             <td>{{product.code}}</td>

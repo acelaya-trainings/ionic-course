@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from './product';
 
 @Component({
   selector: 'products-list',
   templateUrl: './products.component.html',
 })
 export class ProductsComponent implements OnInit {
-  products: any[];
+  products: Product[];
   showImages: boolean = false;
   filterBy: string = '';
 
@@ -17,7 +18,7 @@ export class ProductsComponent implements OnInit {
         code: '001',
         availableDate: '2016-01-01',
         price: 19.95,
-        rating: 3
+        rating: 3,
       },
       {
         imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51-QGor8qKL._SL256_.jpg',
@@ -25,7 +26,7 @@ export class ProductsComponent implements OnInit {
         code: '002',
         availableDate: '2016-01-02',
         price: 32.99,
-        rating: 4
+        rating: 4,
       },
       {
         imageUrl: 'http://www.pngall.com/wp-content/uploads/2016/04/Hammer-Download-PNG.png',
@@ -33,7 +34,7 @@ export class ProductsComponent implements OnInit {
         code: '003',
         availableDate: '2016-01-03',
         price: 8.99,
-        rating: 5
+        rating: 5,
       },
       {
         imageUrl: 'http://plainicon.com/download-icons/51042/plainicon.com-51042-aa67-256px.png',
@@ -41,7 +42,7 @@ export class ProductsComponent implements OnInit {
         code: '004',
         availableDate: '2016-01-04',
         price: 11.55,
-        rating: 4
+        rating: 4,
       },
       {
         imageUrl: 'https://cdn1.iconfinder.com/data/icons/devices-7/128/devices-19-256.png',
@@ -49,8 +50,8 @@ export class ProductsComponent implements OnInit {
         code: '005',
         availableDate: '2016-01-05',
         price: 35.95,
-        rating: 5
-        },
+        rating: 5,
+      },
     ]
   }
 }
