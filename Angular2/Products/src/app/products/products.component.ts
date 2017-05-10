@@ -11,7 +11,10 @@ export class ProductsComponent implements OnInit {
   showImages: boolean = false;
   filterBy: string = '';
   
-  constructor(@Inject(ProductService) private productService: ProductServiceInterface) {}
+  constructor(
+    @Inject(ProductService)
+    private productService: ProductServiceInterface,
+  ) {}
 
   ngOnInit() {
     this.products = this.productService.getProducts();

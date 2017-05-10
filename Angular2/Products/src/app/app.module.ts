@@ -12,6 +12,6 @@ import { ProductService } from "./products/services/product.service";
   imports:      [ BrowserModule, FormsModule ],
   declarations: [ AppComponent, ProductsComponent, StarsComponent, ProductFilterPipe ],
   providers:    [ ProductService ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
 })
 export class AppModule { }
