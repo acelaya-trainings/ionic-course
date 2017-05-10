@@ -50,7 +50,7 @@ export class ProductsComponent implements OnInit {
         availableDate: '2016-01-05',
         price: 35.95,
         rating: 5
-      },
+        },
     ]
   }
 }
