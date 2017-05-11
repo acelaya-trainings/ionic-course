@@ -8,11 +8,13 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TaskService } from "./task.service";
+import { TaskDetailPage } from "../pages/task-detail/task-detail";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    TaskDetailPage,
   ],
   imports: [
     BrowserModule,
@@ -22,13 +24,14 @@ import { TaskService } from "./task.service";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    TaskDetailPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     TaskService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}
