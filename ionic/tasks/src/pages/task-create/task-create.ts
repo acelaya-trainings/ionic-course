@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
+import { Task } from "../../app/task";
 
 /**
  * Generated class for the TaskDetailPage page.
@@ -15,8 +16,17 @@ export class TaskCreatePage {
 
   title: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+  constructor(private viewController: ViewController) {}
+
+  close() {
+    this.viewController.dismiss();
   }
 
+  save() {
+    let newTask: Task = {
+      completed: false,
+      title: this.title
+    }
+    this.viewController.dismiss(newTask);
+  }
 }

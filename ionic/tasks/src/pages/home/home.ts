@@ -28,6 +28,12 @@ export class HomePage {
   }
 
   addTask() {
-    this.modalController.create(TaskCreatePage).present();
+    let modal = this.modalController.create(TaskCreatePage);
+    modal.present();
+    modal.onDidDismiss((newTask) => {
+      this.taskService.createTask(newTask).then((tasks) => {
+        this.tasks = tasks;
+      });
+    });
   }
 }
