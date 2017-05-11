@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { Task } from "../../app/task";
 import { TaskService } from "../../app/task.service";
 import { TaskDetailPage } from "../task-detail/task-detail";
+import { TaskCreatePage } from "../task-create/task-create";
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,11 @@ export class HomePage {
 
   tasks: Task[];
 
-  constructor(public navCtrl: NavController, private taskService: TaskService) {
+  constructor(
+    public navCtrl: NavController,
+    private taskService: TaskService,
+    private modalController: ModalController,
+  ) {
     this.taskService.listTasks().then((tasks) => {
       this.tasks = tasks;
     });
@@ -20,5 +25,9 @@ export class HomePage {
 
   showDetail(task: Task) {
     this.navCtrl.push(TaskDetailPage, task);
+  }
+
+  addTask() {
+    this.modalController.create(TaskCreatePage).present();
   }
 }

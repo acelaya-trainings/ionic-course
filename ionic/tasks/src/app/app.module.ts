@@ -9,12 +9,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TaskService } from "./task.service";
 import { TaskDetailPage } from "../pages/task-detail/task-detail";
+import { TaskCreatePage } from "../pages/task-create/task-create";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TaskDetailPage,
+    TaskCreatePage,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import { TaskDetailPage } from "../pages/task-detail/task-detail";
     MyApp,
     HomePage,
     TaskDetailPage,
+    TaskCreatePage,
   ],
   providers: [
     StatusBar,
