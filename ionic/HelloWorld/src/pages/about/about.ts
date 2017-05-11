@@ -9,9 +9,16 @@ import { HomePage } from "../home/home";
 export class AboutPage {
 
     name: string;
+    authors: string[];
 
   constructor(private navCtrl: NavController, navParams: NavParams) {
     this.name = navParams.get('name');
+
+    this.authors = [
+        'Foo',
+        'Bar',
+        'Baz',
+    ];
   }
 
   goHome() {

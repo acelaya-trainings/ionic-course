@@ -14,4 +14,8 @@
         <ion-badge item-right>260k</ion-badge>
     </ion-item>
     <button ion-button full (click)="goHome()">Home</button>
+
+    <ion-list>
+        <ion-item *ngFor="let author of authors">{{author}}</ion-item>
+    </ion-list>
 </ion-content>
