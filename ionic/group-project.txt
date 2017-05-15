@@ -1,0 +1,15 @@
+Componentes
+    - navegación
+    - modal controller / toast controller / alert controller
+    - listas
+    - botones
+
+Plugins
+    - camara -> hacer fotos -> ver fotos
+    - geoposición
+    - mapas (segunda iteración)
+    - social sharing -> compartir desde app
+
+Modelo de dato
+    - Interfaces
+    - Clases
