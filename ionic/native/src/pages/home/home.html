@@ -18,10 +18,19 @@
         <button ion-button block (click)='showAlbum()'>Show album</button>
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block (click)='showLocation()'>Show location</button>
+        <ul *ngIf="location">
+          <li>Latitude: {{location.latitude}}</li>
+          <li>Longitude: {{location.longitude}}</li>
+        </ul>
+      </ion-col>
+    </ion-row>
   </ion-grid>
   <ion-card>
     <ion-card-content>
-      <img [src]='imageData'>
+      <img [src]='imageData' *ngIf="imageData">
     </ion-card-content>
   </ion-card>
 </ion-content>
