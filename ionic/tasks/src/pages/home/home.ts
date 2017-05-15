@@ -30,7 +30,11 @@ export class HomePage {
   addTask() {
     let modal = this.modalController.create(TaskCreatePage);
     modal.present();
-    modal.onDidDismiss((newTask) => {
+    modal.onDidDismiss((newTask?: Task) => {
+      if (typeof newTask === 'undefined') {
+        return;
+      }
+
       this.taskService.createTask(newTask).then((tasks) => {
         this.tasks = tasks;
       });

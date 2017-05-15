@@ -25,7 +25,7 @@ export class TaskService {
                 ]);*/
 
                 this.storage.get('tasks').then((tasks) => {
-                    resolve(tasks);
+                    resolve(tasks || []);
                 });
             });
         });
