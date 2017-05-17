@@ -1,0 +1,33 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding>
+  <ion-slides pager #mainSlide>
+    <ion-slide>
+      <ion-toolbar>
+        
+      </ion-toolbar>
+      <img src="assets/img/user.jpg">
+      <h2>Set your password</h2>
+      <ion-list>
+        <ion-item>
+          <ion-label>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="password" (keyup.enter)="doLogin()"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button ion-button (click)="doLogin()" [disabled]="password.length < 3">Login</button>
+    </ion-slide>
+    <ion-slide>
+      <ion-toolbar></ion-toolbar>
+      <img src="assets/img/check.jpg">
+      <button ion-button (click)="access()" outline color="secondary">
+        Access&nbsp;
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
