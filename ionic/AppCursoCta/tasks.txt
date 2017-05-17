@@ -1,0 +1,5 @@
+- Configure splash screen
+- Define home page
+- Implement PhotoService (PhotoProvider) [Photo model] [CRUD]
+- Define gallery page
+- Define social sharing (modal and service)
