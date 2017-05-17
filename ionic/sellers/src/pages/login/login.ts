@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { IonicPage, NavController, NavParams, Slides, ToastController } from 'ionic-angular';
+import { AuthProvider } from "../../providers/auth/auth";
 
 /**
  * Generated class for the LoginPage page.
@@ -12,21 +13,46 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
   selector: 'page-login',
   templateUrl: 'login.html',
 })
-export class LoginPage {
+export class LoginPage implements AfterViewInit {
 
   password: string = '';
   @ViewChild('mainSlide')
   slides: Slides;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public authProvider: AuthProvider,
+    public toast: ToastController
+  ) {}
 
   doLogin() {
-    this.slides.slideNext();
+    this.authProvider.validate(this.password).then((isValid: boolean) => {
+      console.log(isValid);
+      if (! isValid) {
+        this.toast.create({
+          message: 'Oops! Invalid password',
+          duration: 3000,
+          position: 'top'
+        }).present();
+
+        return;
+      }
+
+      this.slides.lockSwipes(false);
+      this.slides.slideNext();
+      this.slides.lockSwipes(true);
+    });
   }
 
   access() {
 
+  }
+
+  ngAfterViewInit() {
+    this.slides.lockSwipes(true);
+    this.slides.freeMode = false;
+    this.slides.paginationType = 'progress';
   }
 
 }
