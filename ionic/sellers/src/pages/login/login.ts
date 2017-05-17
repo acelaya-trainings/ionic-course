@@ -1,5 +1,5 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, ToastController, LoadingController } from 'ionic-angular';
 import { AuthProvider } from "../../providers/auth/auth";
 
 /**
@@ -23,12 +23,17 @@ export class LoginPage implements AfterViewInit {
     public navCtrl: NavController, 
     public navParams: NavParams, 
     public authProvider: AuthProvider,
-    public toast: ToastController
+    public toast: ToastController,
+    public loadingCtrl: LoadingController,
   ) {}
 
   doLogin() {
+    let loading = this.loadingCtrl.create({content: 'Validating key...'});
+    loading.present();
+    
     this.authProvider.validate(this.password).then((isValid: boolean) => {
-      console.log(isValid);
+      loading.dismiss();
+
       if (! isValid) {
         this.toast.create({
           message: 'Oops! Invalid password',

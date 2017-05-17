@@ -17,7 +17,9 @@ export class AuthProvider {
 
   validate(password: string): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
-      resolve(password === '123456');
+      setTimeout(() => {
+        resolve(password === '123456');
+      }, 2000);
     });
   }
 
