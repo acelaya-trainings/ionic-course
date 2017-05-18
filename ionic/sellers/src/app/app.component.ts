@@ -25,7 +25,6 @@ export class MyApp {
       splashScreen.hide();
 
       authProvider.hasPassword().then((result) => {
-        console.log(result);
         this.rootPage = result.hasPassword ? HomePage : 'LoginPage';
       });
     });

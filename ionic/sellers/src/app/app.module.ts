@@ -12,6 +12,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { IonicStorageModule } from '@ionic/storage';
 import { firebaseConfig } from "../config/firebase.config";
+import { LocationProvider } from '../providers/location/location';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { firebaseConfig } from "../config/firebase.config";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
+    LocationProvider,
+    Geolocation,
   ]
 })
 export class AppModule {}
