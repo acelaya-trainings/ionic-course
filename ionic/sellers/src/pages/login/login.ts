@@ -1,6 +1,7 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, ToastController, LoadingController } from 'ionic-angular';
 import { AuthProvider } from "../../providers/auth/auth";
+import { HomePage } from "../home/home";
 
 /**
  * Generated class for the LoginPage page.
@@ -51,7 +52,7 @@ export class LoginPage implements AfterViewInit {
   }
 
   access() {
-
+    this.navCtrl.setRoot(HomePage);
   }
 
   ngAfterViewInit() {

@@ -30,14 +30,27 @@ export class AuthProvider {
     });
   }
 
-  protected storePassword(password: string): Promise<any> {
-    return new Promise<any>((resolve, reject) => {
+  protected storePassword(password: string): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
       this.storage.ready().then(() => {
         this.storage.set('password', password).then(() => {
           resolve(password);
         });
       });
     })
+  }
+
+  hasPassword(): Promise<{password: string, hasPassword: boolean}> {
+    return new Promise<{password: string, hasPassword: boolean}>((resolve, reject) => {
+      this.storage.ready().then(() => {
+        this.storage.get('password').then((password) => {
+          resolve({
+            password: password,
+            hasPassword: typeof password !== 'undefined' && password !== null,
+          });
+        });
+      });
+    });
   }
 
 }
