@@ -53,4 +53,14 @@ export class AuthProvider {
     });
   }
 
+  forgetPassword(): Promise<any> {
+    return new Promise<{password: string, hasPassword: boolean}>((resolve, reject) => {
+      this.storage.ready().then(() => {
+        this.storage.set('password', null).then(() => {
+          resolve();
+        });
+      });
+    });
+  }
+
 }

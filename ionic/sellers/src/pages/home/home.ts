@@ -15,6 +15,8 @@ export class HomePage {
     lat: '',
     long: '',
   };
+  private watcher = null;
+  private userId: string;
 
   constructor(
     private navCtrl: NavController,
@@ -27,12 +29,24 @@ export class HomePage {
         return;
       }
 
-      this.location.initLocation(resp.password);
-      this.seller = this.afDB.object('/users/' + resp.password);
-      this.seller.subscribe((resp) => {
+      this.userId = resp.password;
+      this.location.initLocation(this.userId);
+      this.seller = this.afDB.object('/users/' + this.userId);
+      this.watcher = this.seller.subscribe((resp) => {
         this.sellerLocation = resp;
       })
     });
+  }
+
+  logout() {
+    if (this.watcher !== null) {
+      this.watcher.unsubscribe();
+      this.watcher = null;
+      this.location.stopLocation(this.userId);
+      this.auth.forgetPassword();
+    }
+
+    this.navCtrl.setRoot('LoginPage');
   }
 
 }
