@@ -8,6 +8,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { HttpModule } from "@angular/http";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { IonicStorageModule } from '@ionic/storage';
+import { firebaseConfig } from "../config/firebase.config";
 
 @NgModule({
   declarations: [
@@ -18,6 +22,9 @@ import { HttpModule } from "@angular/http";
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

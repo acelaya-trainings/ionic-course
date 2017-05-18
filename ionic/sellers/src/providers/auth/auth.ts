@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Storage } from '@ionic/storage';
 
 /*
   Generated class for the AuthProvider provider.
@@ -11,16 +12,32 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthProvider {
 
-  constructor(public http: Http) {
-    
-  }
+  password: string = '';
+
+  constructor(private afDB: AngularFireDatabase, private storage: Storage) {}
 
   validate(password: string): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
-      setTimeout(() => {
-        resolve(password === '123456');
-      }, 2000);
+      this.afDB.list(`/users/${password}`).subscribe((resp) => {
+        if (resp.length > 0) {
+          this.storePassword(password).then(() => {
+            resolve(true);
+          });
+        } else {
+          resolve(false);
+        }
+      });
     });
+  }
+
+  protected storePassword(password: string): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.storage.ready().then(() => {
+        this.storage.set('password', password).then(() => {
+          resolve(password);
+        });
+      });
+    })
   }
 
 }
